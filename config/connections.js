@@ -57,12 +57,15 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
    tppMongodbServer: {
-     adapter: 'sails-mongo',
-     host: 'localhost',
-     port: 27017,
-     //user: 'username', //optional
-     //password: 'password', //optional
-     database: 'tpp_production' //optional
+      //TODO: use in docker only, I will refine this later
+      adapter: 'sails-mongo',
+      url: 'mongodb://mongodb_tpp_dev/tpp_development'
+     //adapter: 'sails-mongo',
+     //host: 'localhost',
+     //port: 27017,
+     ////user: 'username', //optional
+     ////password: 'password', //optional
+     //database: 'tpp_production' //optional
    },
 
   /***************************************************************************

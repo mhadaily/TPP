@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  mongodb_tpp_dev:
+    container_name: mongodb_tpp_dev
+    image: mongo:3.4.1
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+
+  development:
+    container_name: tpp_dev_server
+    build: .
+    command: npm run startDev
+    ports:
+      - "1337:1337"
+    links:
+      - mongodb_tpp_dev:mongodb_tpp_dev
+    volumes:
+       - .:/home/tpp/app
+       - tpp-deps:/home/tpp/app/node_modules
+
+volumes:
+  mongodb-data:
+    driver: local
+  tpp-deps:
