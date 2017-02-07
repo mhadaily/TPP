@@ -1,8 +1,8 @@
 {
-  "name": "mmmm",
+  "name": "tpp",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "version": "0.1.0",
+  "description": "A Node.Js based on Sails app that will demonstrate the programming popularity in different aspects on Twitter and will be realtime!",
   "keywords": [],
   "dependencies": {
     "ejs": "2.3.4",
@@ -26,13 +26,14 @@
   },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "startDev": "nodemon app.js"
   },
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/majid/mmmm.git"
+    "url": "git://github.com/majid/tpp.git"
   },
   "author": "majid",
-  "license": ""
+  "license": "MIT"
 }
