@@ -5,7 +5,7 @@ RUN useradd --user-group --create-home --shell /bin/false tpp && \
 
 ENV HOME=/home/tpp
 
-COPY package.json npm-shrinkwrap.json $HOME/app/
+COPY package.json $HOME/app/
 
 COPY . $HOME/app
 

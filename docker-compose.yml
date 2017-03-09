@@ -19,7 +19,7 @@ services:
       - mongodb_tpp_dev:mongodb_tpp_dev
     volumes:
        - .:/home/tpp/app
-       - tpp-deps:/home/tpp/app/node_modules
+#       - tpp-deps:/home/tpp/app/node_modules
 
 volumes:
   mongodb-data:
