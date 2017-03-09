@@ -50,3 +50,5 @@ jspm_packages
 
 .idea
 TTP.iml
+.env
+token.js
