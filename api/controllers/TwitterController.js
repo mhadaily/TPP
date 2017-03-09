@@ -20,21 +20,28 @@ module.exports = {
   },
   search(req, res) {
     client.get('search/tweets', {q: req.query.q}, function (error, tweets, response) {
+      sails.models.twitter.create({rawData: response.body}).exec((err, record) => {
+        if (err) {
+          return res.serverError(err);
+        }
+        sails.log(record.id);
+      });
       return res.json(tweets);
     });
   },
-  stream(req, res) {
+  stream(req, res, next) {
     /**
      * Stream statuses filtered by keyword
      * number of tweets per second depends on topic popularity
      **/
-    client.stream('statuses/filter', {track: 'majidhajian'}, function (stream) {
+    client.stream('statuses/filter', {track: req.query.track}, function (stream) {
       stream.on('data', function (tweet) {
-        return res.json(tweet.text);
+        sails.log(tweet.text);
       });
 
       stream.on('error', function (error) {
-        return res.json(error);
+        sails.log(error);
+        next();
       });
     });
   }
